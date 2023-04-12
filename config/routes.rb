@@ -1,50 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'order/show'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/thanks'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/unsubscribe'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-  devise_for :customers,skip: [:passwords], controllers: {
+ devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -52,5 +8,32 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
+
+  namespace :admin do
+    resources :orders, only: [:show, :update]
+    get "/" => "homes#top"
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:index, :edit, :create, :update]
+    resources :items, only: [:index, :create, :new, :show, :edit, :update]
+    resources :order_details, only: [:update]
+    get "/search" => "items#search"
+  end
+
+    scope module: :public do
+    resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
+    get "/customers/unsubscribe" => "customers#unsubscribe"
+    patch "/customers/withdraw" => "customers#withdraw"
+    resource :customers, only: [:show, :update, :edit]
+    post "/orders/confirm" => "orders#confirm"
+    get "/orders/thanks" => "orders#thanks"
+    resources :orders, only: [:new, :create, :show, :index]
+    delete "/cart_items/destroy_all" => "cart_items#destroy_all"
+    resources :cart_items, only: [:index, :create, :destroy, :update]
+    resources :items, only: [:index, :show]
+    root "homes#top"
+    get "/about" => "homes#about"
+    get "/search" => "items#search"
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
