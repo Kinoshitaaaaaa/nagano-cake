@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
-   @items=Item.all
+   @items=Item.all(created_at: :desc)
   end
 
   def about
