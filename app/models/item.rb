@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to :genre
   has_many :orders, through: :order_details
 
-  attachment :image
+  has_many :image
 
   validates :name, presence: true
   validates :description, presence: true
