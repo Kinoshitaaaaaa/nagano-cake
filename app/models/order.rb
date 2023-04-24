@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   validates :payment_option, presence: true
   validates :shipping_fee, presence: true
   validates :shipping_address, length: { in: 1..48 }
-  validates :shipping_postcode, format: { with: VALID_POSTCODE_REGEX }
+  validates :shipping_postcode, length: { is: 8}
   validates :shipping_name, length: { in: 1..32 }
   validates :order_status, presence: true
 
