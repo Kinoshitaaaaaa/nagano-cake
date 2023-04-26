@@ -8,9 +8,9 @@ class Public::CustomersController < ApplicationController
   def unsubscribe
   end
 
-  def withdraw
+  def is_deleted
     @customer = current_customer
-    @customer.withdrawal_status = true
+    @customer.is_deleted = true
     if @customer.save
       reset_session
       redirect_to root_path

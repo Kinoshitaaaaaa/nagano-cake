@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
- devise_for :customers,skip: [:passwords], controllers: {
+ devise_for :customers, controllers: {
   registrations: "public/registrations",
-  sessions: 'public/sessions'
+  sessions: 'public/sessions',
+  passwords: 'public/passwords'
 }
-
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     scope module: :public do
     resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
     get "/customers/unsubscribe" => "customers#unsubscribe"
-    patch "/customers/withdraw" => "customers#withdraw"
+    patch "/customers/is_deleted" => "customers#is_deleted"
     resource :customers, only: [:show, :update, :edit]
     post "/orders/confirm" => "orders#confirm"
     get "/orders/thanks" => "orders#thanks"

@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_with model: @customer, url: new_customer_session_path do |f| %>
     <div class="row">
       <div class="col-sm-2 px-sm-0 offset-sm-1">
         <%= f.label "メールアドレス" %>
@@ -33,5 +33,5 @@
       </div>
     </div>
   <% end %>
-  <%= render "customers/shared/links" %>
+  <%= render "public/shared/links" %>
 </div>
