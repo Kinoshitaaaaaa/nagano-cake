@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
     scope module: :public do
-    resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
+    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     get "/customers/unsubscribe" => "customers#unsubscribe"
     patch "/customers/is_deleted" => "customers#is_deleted"
     resource :customers, only: [:show, :update, :edit]

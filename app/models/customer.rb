@@ -18,7 +18,7 @@ class Customer < ApplicationRecord
   validates :email, uniqueness: true
 
   def active_for_authentication?
-    super && (self.withdrawal_status == false)
+    super && (self.is_deleted == false)
   end
 
 end
