@@ -22,7 +22,7 @@
               <td class="align-middle"><u><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id), class:"font-weight-bold" %></u></td>
               <td class="align-middle"><%= customer.email %></td>
               <td class="align-middle">
-                <% if customer.withdrawal_status == false %>
+                <% if customer.is_deleted == false %>
                   <p class="text-success font-weight-bold">有効</p>
                 <% else %>
                   <p class="text-secondary">退会</p>

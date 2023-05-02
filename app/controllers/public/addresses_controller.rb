@@ -2,13 +2,13 @@ class Public::AddressesController < ApplicationController
   def index
     @address = Address.new
     @customer = current_customer
-    @addresses = @customer.addresses
+    @addresses= @customer.addresses
   end
 
   def create
-    @shipping_address = Address.new(shipping_address_params)
-    @shipping_address.customer_id = current_customer.id
-    if @shipping_address.save
+    @address = Address.new(address_params)
+    @address.customer_id = current_customer.id
+    if @address.save
       flash[:success] = "新しい配送先の登録が完了しました。"
       redirect_to addresses_path
     else
@@ -20,12 +20,12 @@ class Public::AddressesController < ApplicationController
   end
 
   def edit
-    @shipping_address = Address.find(params[:id])
+    @address = Address.find(params[:id])
   end
 
   def update
-    @shipping_address = Address.find(params[:id])
-    if @shipping_address.update(shipping_address_params)
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
        flash[:success] = "配送先の変更内容を保存しました。"
        redirect_to addresses_path
     else
@@ -35,16 +35,16 @@ class Public::AddressesController < ApplicationController
   end
 
   def destroy
-    @shipping_address = Address.find(params[:id])
-    @shipping_address.customer_id = current_customer.id
-    @shipping_address.destroy
+    @address = Address.find(params[:id])
+    @address.customer_id = current_customer.id
+    @address.destroy
     flash[:success] = "配送先の削除が完了しました。"
     redirect_to addresses_path
   end
 
 
   private
-  def shipping_address_params
-    params.require(:shipping_address).permit(:shipping_postcode, :shipping_address, :shipping_name)
+  def address_params
+    params.require(:address).permit(:postcode, :address, :name)
   end
 end
