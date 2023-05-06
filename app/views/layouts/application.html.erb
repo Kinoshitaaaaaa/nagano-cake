@@ -8,6 +8,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/17908fdbcd.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -24,7 +25,7 @@
             <% if admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to admin_items_path do %>
-                  <i class="fas fa-cookie-bite">商品一覧</i>
+                  <i class="fa-regular fa-cookie-bite">商品一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
