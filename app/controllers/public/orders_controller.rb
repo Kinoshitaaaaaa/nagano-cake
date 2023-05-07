@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @addresses = current_customer.addresses
+    @shipping_address= current_customer.shipping_address
   end
 
   def confirm

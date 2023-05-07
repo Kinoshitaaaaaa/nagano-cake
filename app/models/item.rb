@@ -5,11 +5,11 @@ class Item < ApplicationRecord
   belongs_to :genre
   has_many :orders, through: :order_details
 
-  has_many :image
+  has_one_attached :image
 
   validates :name, presence: true
-  validates :description, presence: true
+  validates :introduction, presence: true
   validates :genre, presence: true
-  validates :price_excluding_tax, presence: true, numericality: { only_integer: true, greater_than: 0}
+  validates :price, presence: true, numericality: { only_integer: true, greater_than: 0}
 
 end

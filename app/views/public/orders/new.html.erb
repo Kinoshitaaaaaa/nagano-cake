@@ -15,7 +15,7 @@
       <% if current_customer.shipping_addresses.empty? %>
       <% else %>
         <%= f.radio_button :address_option, 1, class: "ml-4 mt-3"  %>登録済み住所から選択<br>
-        <div class="ml-5 "><%= f.collection_select(:registration_shipping_address, @shipping_addresses, :id, :shipping_postcode_and_address_and_name,
+        <div class="ml-5 "><%= f.collection_select(:registration_shipping_address, @shipping_address, :id, :shipping_postcode_and_address_and_name,
                                                   {}, {class: "form-control"}) %></div>
       <% end %>
       <%= f.radio_button :address_option, 2, class: "ml-4 mt-3"  %>新しいお届け先<br>
