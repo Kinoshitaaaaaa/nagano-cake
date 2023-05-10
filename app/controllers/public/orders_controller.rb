@@ -48,11 +48,11 @@ class Public::OrdersController < ApplicationController
     if @order.save
       @cart_items = CartItem.where(customer_id: current_customer.id)
       @cart_items.each do |cart_item|
-        order_detail = OrderDetail.new
+        order_detail = OderDetail.new
         order_detail.item_id = cart_item.item_id
         order_detail.order_id = @order.id
         order_detail.amount = cart_item.amount
-        order_detail.price_including_tax = change_price_excluding_tax(cart_item.item.price_excluding_tax)
+        order_detail.price_including_tax = cart_item.item.price
         order_detail.production_status = 0
         if order_detail.save
           @cart_items.destroy_all
