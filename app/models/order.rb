@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   validates :shipping_address, length: { in: 1..48 }
   validates :shipping_postcode, length: { is: 8}
   validates :shipping_name, length: { in: 1..32 }
-  validates :order_status, presence: true
+  validates :status, presence: true
 
   has_many :order_details, dependent: :destroy
   belongs_to :customer

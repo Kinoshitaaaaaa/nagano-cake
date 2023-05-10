@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @shipping_address= current_customer.shipping_address
+    @shipping_address= current_customer.address
   end
 
   def confirm
@@ -25,7 +25,7 @@ class Public::OrdersController < ApplicationController
     @order.temporary_information_input(customer.id)
 
     if address_option == 0
-      @order.order_in_postcode_address_name(customer.postcode, customer.address, customer.last_name)
+      @order.order_in_postcode_address_name(customer.postal_code, customer.address, customer.last_name)
     elsif address_option == 1
       shipping = Address.find(params[:order][:registration_shipping_address])
       @order.order_in_postcode_address_name(shipping.shipping_postcode, shipping.shipping_address, shipping.shipping_name)
