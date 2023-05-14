@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   validates :shipping_name, length: { in: 1..32 }
   validates :status, presence: true
 
-  has_many :order_details, dependent: :destroy
+  has_many :oder_details, dependent: :destroy
   belongs_to :customer
   has_many :items, through: :order_details
 

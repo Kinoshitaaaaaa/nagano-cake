@@ -1,5 +1,5 @@
 class Admin::OrderDetailsController < ApplicationController
-  
+
   def update
     @order = Order.find(params[:id])
     @order_detail = OrderDetail.find(params[:order_detail][:order_detail_id])
@@ -23,7 +23,7 @@ class Admin::OrderDetailsController < ApplicationController
 
   def order_detail_status_params
     params.require(:order_detail).permit(:production_status)
-  
+
   end
-  
+
 end

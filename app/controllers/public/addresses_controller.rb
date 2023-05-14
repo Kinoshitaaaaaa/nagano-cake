@@ -2,7 +2,7 @@ class Public::AddressesController < ApplicationController
   def index
     @address = Address.new
     @customer = current_customer
-    @address= @customer.addresses
+    @addresses= @customer.addresses
   end
 
   def create
@@ -41,10 +41,9 @@ class Public::AddressesController < ApplicationController
     flash[:success] = "配送先の削除が完了しました。"
     redirect_to addresses_path
   end
-
-
-  private
+  
+ private
   def address_params
-    params.require(:address).permit(:postcode, :address, :name)
+    params.require(:address).permit(:post_code, :address, :name)
   end
 end

@@ -19,7 +19,7 @@
               <td class="align-middle"><%= order.created_at.strftime('%Y/%m/%d') %></td>
               <td class="align-middle"><%= "〒#{order.shipping_postcode}" %><br><%= order.shipping_address %><br><%= order.shipping_name %></td>
               <td class="align-middle" style="word-break:break-all">
-                <% order.order_details.each do |order_detail| %>
+                <% order.oder_details.each do |order_detail| %>
                   <%= link_to order_detail.item.name,item_path(order_detail.item) %><br>
                 <% end %>
               </td>
