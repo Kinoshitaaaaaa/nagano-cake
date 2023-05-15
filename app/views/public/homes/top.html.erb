@@ -1,16 +1,14 @@
 <div class="plate mx-auto" id="cork">
-  <span>Welcome!!</span>
+  <h1 class="text-center">Welcome!!</h1>
   </div>
-<div class="home-box mx-auto my-3">
+<div class="home-box col-sm-10 px-sm-0 offset-sm-1">
     <p class="home-text">ようこそ、ながのCAKEへ！<br>
     このサイトは、ケーキ販売のECサイトになります。
     会員でない方も商品の閲覧はできますが、<br>
     購入には会員登録が必要になります。
     </p>
   <div class="slide">
-    <div class="slide-item"><img class="slide-img" src="assets/shopImage.jpg"></div>
-    <div class="slide-item"><img class="slide-img" src="assets/strawberry.jpg"></div>
-    <div class="slide-item"><img class="slide-img" src="assets/top-image.jpg"></div>
+    <div class="slide-item"><img class="slide-img" src="assets/cake-top2.jpg"></div>
 </div>
 </div>
 
@@ -27,7 +25,7 @@
           <div class="card-body">
             <p class="card-text"><%= item.name %></p>
             <% if item.is_active == true %>
-              <p class="card-text"><%= item.price %>円(税抜き)</p>
+              <p class="card-text"><%= item.price %>円(税込み)</p>
             <% else %>
               <p class="card-text text-danger">販売停止中</p>
             <% end %>

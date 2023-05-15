@@ -41,7 +41,7 @@ class Public::AddressesController < ApplicationController
     flash[:success] = "配送先の削除が完了しました。"
     redirect_to addresses_path
   end
-  
+
  private
   def address_params
     params.require(:address).permit(:post_code, :address, :name)
