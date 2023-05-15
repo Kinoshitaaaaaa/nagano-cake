@@ -11,7 +11,7 @@
       <tr>
         <div class="form-group">
           <th><%= f.label :商品画像 %></th>
-          <td><%= f.attachment_field :image %></td>
+          <td><%= f.file_field :image %></td>
         </div>
       </tr>
       <tr>
@@ -23,7 +23,7 @@
       <tr>
         <div class="form-group">
           <th><%= f.label :商品説明 %></th>
-          <td><%= f.text_area :description, size: "50x5", placeholder:"ここに説明文を記述します" %></td>
+          <td><%= f.text_area :introduction, size: "50x5", placeholder:"ここに説明文を記述します" %></td>
         </div>
       </tr>
       <tr>
@@ -34,7 +34,7 @@
       </tr>
       <tr>
         <div class="form-group">
-          <th><%= f.label :税抜価格 %></th>
+          <th><%= f.label :税込価格 %></th>
           <td><%= f.text_field :price_excluding_tax, placeholder:"1000" %>円</td>
         </div>
       </tr>

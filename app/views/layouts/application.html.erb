@@ -25,27 +25,28 @@
             <% if admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to admin_items_path do %>
-                  <i class="fa-regular fa-cookie-bite">商品一覧</i>
+                  <i class="fa-solid fa-cookie-bite">商品一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to admin_customers_path do %>
-                  <i class="fas fa-users">会員一覧</i>
+                  <i class="fa-solid fa-user">会員一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to admin_path  do %>
-                  <i class="fas fa-clipboard-list">注文履歴一覧</i>
+                  <i class="fa-solid fa-clipboard-list">注文履歴一覧</i>
+
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to admin_genres_path do%>
-                  <i class="fas fa-tags">ジャンル一覧</i>
+                  <i class="fa-solid fa-tag">ジャンル一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to destroy_admin_session_path, method: :delete do %>
-                  <i class="fas fa-sign-out-alt">ログアウト</i>
+                  <i class="fa-solid fa-arrow-right-from-bracket">ログアウト</i>
                 <% end %>
               </li>
               <li class="mt-3">
@@ -64,22 +65,22 @@
               </li>
               <li class="nav-item">
                 <%= link_to customers_path do %>
-                  <i class="fas fa-user-circle">マイページ</i>
+                  <i class="fa-solid fa-circle-user">マイページ</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to  items_path do %>
-                  <i class="fas fa-cookie-bite">商品一覧</i>
+                  <i class="fa-solid fa-cookie-bite">商品一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to cart_items_path do %>
-                  <i class="fas fa-shopping-cart">カート</i>
+                  <i class="fa-solid fa-cart-shopping">カート</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to destroy_customer_session_path, method: :delete do %>
-                  <i class="fas fa-sign-out-alt">ログアウト</i>
+                  <i class="fa-solid fa-arrow-right-from-bracket">ログアウト</i>
                 <% end %>
               </li>
               <li class="mt-3">
@@ -92,22 +93,22 @@
 
               <li class="nav-item">
                 <%= link_to about_path do %>
-                  <i class="fas fa-store-alt">About</i>
+                  <i class="fa-solid fa-shop">about</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to items_path do %>
-                  <i class="fas fa-cookie-bite">商品一覧</i>
+                  <i class="fa-solid fa-cookie-bite">商品一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to new_customer_registration_path, data: {"turbolinks" => false} do %>
-                  <i class="fas fa-user-plus">新規登録</i>
+                  <i class="fa-solid fa-user-plus">新規登録</i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to  new_customer_session_path do%>
-                  <i class="fas fa-user">ログイン</i>
+                  <i class="fa-solid fa-user">ログイン</i>
                 <% end %>
               </li>
               <li class="mt-3">
