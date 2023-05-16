@@ -34,18 +34,18 @@
           </tr>
         </thead>
         <tbody>
-          <% @order.order_details.each do |order_detail| %>
+          <% @order.oder_details.each do |order_detail| %>
           <tr>
             <td class="align-middle"><%= order_detail.item.name %> </td>
-            <td class="align-middle"><%= change_price_excluding_tax(order_detail.price_including_tax) %></td>
+            <td class="align-middle"><%= order_detail.price_including_tax %></td>
             <td class="align-middle">
               <%= order_detail.amount %>
             </td>
-            <td class="align-middle"><%= change_price_excluding_tax(order_detail.price_including_tax) * order_detail.amount %>円</td>
+            <td class="align-middle"><%= order_detail.price_including_tax * order_detail.amount %>円</td>
             <td class="align-middle">
               <%= form_with model: order_detail, url: admin_order_detail_path, method: :patch, local: true do |f| %>
               <%= f.hidden_field :order_detail_id, :value => order_detail.id %>
-              <%= f.select :production_status, OrderDetail.production_statuses.keys %>
+              <%= f.select :production_status, OderDetail.production_statuses.keys %>
               <%= f.submit "更新", class: "btn btn-success" %>
               <% end %>
             </td>

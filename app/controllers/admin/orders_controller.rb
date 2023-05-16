@@ -1,14 +1,14 @@
-class Admin::OrderController < ApplicationController
+class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @orders = Order.all
-    @order_details = OrderDetail.where(order_id: @order)
-    @production_status = @order.order_details.pluck(:production_status)
+    @order_details = OderDetail.where(order_id: @order)
+    @production_status = @order.oder_details.pluck(:production_status)
   end
 
   def update
     @order = Order.find(params[:id])
-    @order_details = OrderDetail.where(order_id: @order)
+    @order_details = OderDetail.where(order_id: @order)
     if @order.update(order_status_params)
       if @order.order_status.include?("入金確認")
          @order_details.update( production_status: 1)
