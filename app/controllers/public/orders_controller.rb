@@ -38,7 +38,7 @@ class Public::OrdersController < ApplicationController
        @order.errors.full_messages
       redirect_back(fallback_location: root_path)
     end
-    # render plain: @order.inspect
+
   end
 
   def create

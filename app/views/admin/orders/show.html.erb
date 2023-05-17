@@ -59,7 +59,7 @@
         <tr>
           <th class="table-active" style="width:50%">商品合計</th>
           <td>
-            <% @add_tax_total_payment = @order.total_payment %>
+            <% @add_tax_total_payment = @order.total_payment-800 %>
             <%= @add_tax_total_payment %>円
           </td>
         </tr>
